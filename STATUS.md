@@ -12,6 +12,9 @@
 - Unit and sabotage tests for the first acceptance gate (EL-001)
 - Explicit adversarial attack scripts
 - **EL-002:** Append-only ledger API — duplicate claim/observation/evidence IDs are rejected; originals remain unchanged (`tests/test_immutability.py`)
+- **EL-003:** Integrity ≠ authenticity — SPEC defines the separation; provenance status (ASSERTED/…) is machine-readable; forged-provenance attack documents the known limitation
+- **EL-004:** Boundary and adversarial-input tests for the threshold contract (`tests/test_boundary.py`)
+- **EL-006:** Verifier mutation resistance — property suite detects six known verifier corruptions (`tests/test_mutation_resistance.py`)
 
 ## What does not exist (and is intentionally deferred)
 

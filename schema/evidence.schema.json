@@ -51,7 +51,24 @@
         "checks": { "type": "object" }
       }
     },
-    "provenance": { "type": ["object", "null"] },
+    "provenance": {
+      "type": ["object", "null"],
+      "properties": {
+        "status": {
+          "type": "string",
+          "enum": [
+            "ASSERTED",
+            "ATTESTED",
+            "INDEPENDENTLY_VERIFIED",
+            "UNKNOWN"
+          ],
+          "description": "ASSERTED = named source, no independent confirmation. ATTESTED / INDEPENDENTLY_VERIFIED require mechanisms not present in v0.1."
+        },
+        "source_identifier": { "type": ["string", "null"] },
+        "note": { "type": ["string", "null"] }
+      },
+      "additionalProperties": true
+    },
     "value": {},
     "unit": { "type": ["string", "null"] }
   },

@@ -117,6 +117,62 @@ No implicit promotion is permitted.
 
 ---
 
+## 2.5 Integrity, provenance, and authenticity
+
+These three properties must not be collapsed.
+
+### Record integrity
+
+Does the record match its declared cryptographic representation?
+
+When `content_hash` matches the canonical serialization of the value-bearing fields, the record has **integrity**. The data has not been altered since the hash was computed.
+
+### Provenance
+
+Does the record identify the claimed source and lineage?
+
+Provenance answers: “Where does this record *claim* to have come from?”  
+It is descriptive, not a proof of origin.
+
+### Authenticity
+
+Is there independent evidence that the claimed source actually generated the observation?
+
+Authenticity answers: “Can we independently establish that the identified source produced this evidence?”
+
+### Provenance status (machine-readable)
+
+| Status                    | Meaning |
+|---------------------------|---------|
+| `ASSERTED`                | The record names a source. No independent mechanism has confirmed that source produced the observation. |
+| `ATTESTED`                | An attestation mechanism associated with the source has signed or otherwise bound the observation. (Not implemented in v0.1.) |
+| `INDEPENDENTLY_VERIFIED`  | A separate, trusted channel has confirmed the source produced the observation. (Not implemented in v0.1.) |
+| `UNKNOWN`                 | No provenance status has been declared. |
+
+In v0.1, ordinary evidence records that name a source should carry:
+
+```json
+"provenance": {
+  "status": "ASSERTED",
+  "source_identifier": "cpu_temp_sensor"
+}
+```
+
+### Hard invariant
+
+> **HASH_MATCH ≠ SOURCE_AUTHENTICITY**
+
+A passing content hash proves only that the current record matches the data used to compute the hash.  
+It does **not** prove that the claimed sensor (or operator, or tool) actually produced that data.
+
+The ledger must be able to represent:
+
+> “I have a perfectly intact record of an assertion whose source I cannot authenticate.”
+
+v0.1 does not claim to solve authenticity. It only refuses to conflate integrity with authenticity.
+
+---
+
 ## 3. Research / epistemic status (separate dimension)
 
 These describe **what has happened to the claim or experiment**.

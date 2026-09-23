@@ -25,5 +25,5 @@
       "device": "example-device"
     }
   },
-  "_note": "content_hash is correctly computed from value/unit/source/timestamp/state."
+  "_note": "content_hash above is a placeholder; the verifier recomputes from value/unit/source/timestamp/state. For a real run the hash must match the recomputed value."
 }

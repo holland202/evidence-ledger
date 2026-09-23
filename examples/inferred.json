@@ -1,0 +1,27 @@
+{
+  "claim_text": "The CPU temperature exceeded 40 °C.",
+  "contract": {
+    "contract_id": "CONTRACT-001",
+    "required_states": ["MEASURED"],
+    "threshold": 40.0,
+    "require_source": true,
+    "require_timestamp": true,
+    "require_integrity": true,
+    "require_hash_match": true
+  },
+  "evidence": {
+    "evidence_id": "EV-002",
+    "observation_id": "OBS-002",
+    "evidence_state": "INFERRED",
+    "source_type": "MODEL_OUTPUT",
+    "source_identifier": "local-llm-v1",
+    "timestamp": "2026-09-23T16:00:00+00:00",
+    "value": 42.1,
+    "unit": "C",
+    "content_hash": "506df5702827b7610d6368e9310639175f30728630249ca4a017731619ac7ffe",
+    "integrity": { "valid": true },
+    "provenance": {
+      "note": "Inferred from CPU load; not a direct measurement"
+    }
+  }
+}

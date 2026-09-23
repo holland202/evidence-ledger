@@ -1,0 +1,27 @@
+{
+  "claim_text": "The CPU temperature exceeded 40 °C.",
+  "contract": {
+    "contract_id": "CONTRACT-001",
+    "required_states": ["MEASURED"],
+    "threshold": 40.0,
+    "require_source": true,
+    "require_timestamp": true,
+    "require_integrity": true,
+    "require_hash_match": true
+  },
+  "evidence": {
+    "evidence_id": "EV-003",
+    "observation_id": "OBS-003",
+    "evidence_state": "DEFAULTED",
+    "source_type": "UNKNOWN",
+    "source_identifier": "fallback_rule",
+    "timestamp": "2026-09-23T16:00:00+00:00",
+    "value": 40.0,
+    "unit": "C",
+    "content_hash": "6b69a856eac795f3cbbd8188b2a70b8e046b55eeb7133ded8a9621fc84b61b73",
+    "integrity": { "valid": true },
+    "provenance": {
+      "note": "System substituted a default because sensor was unavailable"
+    }
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "claim_text": "The CPU temperature exceeded 40 °C.",
+  "contract": {
+    "contract_id": "CONTRACT-001",
+    "required_states": ["MEASURED"],
+    "threshold": 40.0,
+    "require_source": true,
+    "require_timestamp": true,
+    "require_integrity": true,
+    "require_hash_match": true
+  },
+  "evidence": {
+    "evidence_id": "EV-004",
+    "observation_id": "OBS-004",
+    "evidence_state": "MEASURED",
+    "source_type": "DEVICE_SENSOR",
+    "source_identifier": "cpu_temp_sensor",
+    "timestamp": "2026-09-23T16:00:00+00:00",
+    "value": 35.0,
+    "unit": "C",
+    "content_hash": "this-hash-does-not-match-the-value",
+    "integrity": { "valid": true },
+    "provenance": {
+      "instrument": "cpu_temp_sensor",
+      "device": "example-device",
+      "note": "Value was altered after the original hash was computed"
+    }
+  }
+}

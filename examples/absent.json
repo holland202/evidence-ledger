@@ -1,0 +1,14 @@
+{
+  "claim_text": "The CPU temperature exceeded 40 °C.",
+  "contract": {
+    "contract_id": "CONTRACT-001",
+    "required_states": ["MEASURED"],
+    "threshold": 40.0,
+    "require_source": true,
+    "require_timestamp": true,
+    "require_integrity": true,
+    "require_hash_match": true
+  },
+  "evidence": null,
+  "_note": "No evidence object present. Verifier must return INSUFFICIENT_EVIDENCE."
+}

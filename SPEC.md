@@ -121,11 +121,39 @@ No implicit promotion is permitted.
 
 These three properties must not be collapsed.
 
-### Record integrity
+### Record integrity (and payload integrity)
 
-Does the record match its declared cryptographic representation?
+Does the hashed payload match its declared cryptographic representation?
 
-When `content_hash` matches the canonical serialization of the value-bearing fields, the record has **integrity**. The data has not been altered since the hash was computed.
+In v0.1, `content_hash` covers only these fields:
+
+- `value`
+- `unit`
+- `source_identifier`
+- `timestamp`
+- `evidence_state`
+
+It does **not** cover `evidence_id`, `source_type`, `provenance`, `integrity`, `environment`, or `observation_id`.
+
+Therefore:
+
+> **payload integrity ≠ full record integrity**
+
+A passing hash means the value-bearing payload was not altered since the hash was computed. It does not bind the entire evidence object. Fields outside the hash can be changed without invalidating `content_hash`.
+
+#### Declared integrity vs computed integrity
+
+The evidence object may carry:
+
+```json
+"integrity": { "valid": true }
+```
+
+That flag is **self-attested** by the submitter. The verifier treats `integrity.valid == false` as FAIL under a strict contract, but `true` is only an assertion.
+
+The independently computed check is `content_hash_valid`: the verifier recomputes the hash of the payload fields and compares it to the claimed hash.
+
+> **declared integrity ≠ independently established integrity**
 
 ### Provenance
 
@@ -340,7 +368,8 @@ Claim: “Temperature exceeded 40 °C.”
 | 42.1 °C + DEFAULTED                | INSUFFICIENT_EVIDENCE                        |
 | ABSENT                             | INSUFFICIENT_EVIDENCE                        |
 | tampered value / hash mismatch     | INVALID_EVIDENCE                             |
-| forged provenance                  | INVALID_EVIDENCE                             |
+
+**Forged provenance** (invented source + correct hash + MEASURED) is **not** an EL-001 `INVALID_EVIDENCE` case in v0.1. Authenticity is not a contract gate; see §2.5 and `adversarial/forged_provenance.py`. Hash tampering remains `INVALID_EVIDENCE`.
 
 All of the above distinctions must survive intentional sabotage.
 
@@ -349,3 +378,4 @@ All of the above distinctions must survive intentional sabotage.
 ## Document history
 
 - 0.1 — Initial ontology and invariants extracted from the founding design discussion.
+- 0.1.1 — Clarified payload integrity vs full record integrity; declared vs computed integrity; removed forged-provenance from EL-001 INVALID path.

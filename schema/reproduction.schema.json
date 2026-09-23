@@ -1,0 +1,34 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/holland202/evidence-ledger/schema/reproduction.schema.json",
+  "title": "Reproduction",
+  "description": "A recorded second (or later) execution of a verification. Distinct from the original verification.",
+  "type": "object",
+  "required": ["reproduction_id", "original_verification_id", "result"],
+  "properties": {
+    "schema_version": { "type": "string", "const": "0.1" },
+    "reproduction_id": { "type": "string" },
+    "original_verification_id": { "type": "string" },
+    "original_environment": { "type": "object" },
+    "reproduction_environment": { "type": "object" },
+    "device": { "type": ["string", "null"] },
+    "os": { "type": ["string", "null"] },
+    "python": { "type": ["string", "null"] },
+    "dependencies": { "type": ["object", "null"] },
+    "commit": { "type": ["string", "null"] },
+    "seed": { "type": ["integer", "null"] },
+    "model": { "type": ["string", "null"] },
+    "input_hash": { "type": ["string", "null"] },
+    "output_hash": { "type": ["string", "null"] },
+    "result": {
+      "type": "string",
+      "enum": ["SUPPORTED", "REFUTED", "INSUFFICIENT_EVIDENCE", "INVALID_EVIDENCE", "VOID"]
+    },
+    "independence_axes": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Recorded axes of independence (device, environment, implementation, evaluator, operator, ...)"
+    }
+  },
+  "additionalProperties": true
+}

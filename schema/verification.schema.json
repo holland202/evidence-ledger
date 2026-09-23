@@ -1,0 +1,46 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/holland202/evidence-ledger/schema/verification.schema.json",
+  "title": "Verification",
+  "description": "Result of evaluating a claim against an explicit verification contract.",
+  "type": "object",
+  "required": ["verification_id", "claim_id", "verdict", "requirements"],
+  "properties": {
+    "schema_version": { "type": "string", "const": "0.1" },
+    "verification_id": { "type": "string" },
+    "claim_id": { "type": "string" },
+    "verifier_id": { "type": "string" },
+    "verifier_version": { "type": "string" },
+    "verifier_hash": { "type": ["string", "null"] },
+    "verification_contract": {
+      "type": "object",
+      "properties": {
+        "contract_id": { "type": "string" },
+        "requirements": {
+          "type": "array",
+          "items": { "type": "string" }
+        }
+      }
+    },
+    "requirements": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "string",
+        "enum": ["PASS", "FAIL", "NOT_APPLICABLE"]
+      }
+    },
+    "verdict": {
+      "type": "string",
+      "enum": [
+        "SUPPORTED",
+        "REFUTED",
+        "INSUFFICIENT_EVIDENCE",
+        "INVALID_EVIDENCE",
+        "VOID"
+      ]
+    },
+    "timestamp": { "type": "string", "format": "date-time" },
+    "notes": { "type": ["string", "null"] }
+  },
+  "additionalProperties": true
+}

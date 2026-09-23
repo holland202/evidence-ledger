@@ -1,0 +1,59 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/holland202/evidence-ledger/schema/evidence.schema.json",
+  "title": "Evidence",
+  "description": "An observation plus provenance and integrity information sufficient for a verifier to evaluate it.",
+  "type": "object",
+  "required": [
+    "evidence_id",
+    "evidence_state",
+    "source_type",
+    "timestamp",
+    "content_hash"
+  ],
+  "properties": {
+    "schema_version": { "type": "string", "const": "0.1" },
+    "evidence_id": { "type": "string", "minLength": 1 },
+    "observation_id": { "type": ["string", "null"] },
+    "evidence_state": {
+      "type": "string",
+      "enum": [
+        "MEASURED",
+        "OPERATOR",
+        "DERIVED",
+        "INFERRED",
+        "ABSENT",
+        "DEFAULTED",
+        "NEVER_WIRED",
+        "UNVERIFIED"
+      ]
+    },
+    "source_type": {
+      "type": "string",
+      "enum": [
+        "DEVICE_SENSOR",
+        "OPERATOR",
+        "DERIVATION",
+        "MODEL_OUTPUT",
+        "TOOL",
+        "UNKNOWN"
+      ]
+    },
+    "source_identifier": { "type": ["string", "null"] },
+    "timestamp": { "type": "string", "format": "date-time" },
+    "content_hash": { "type": "string", "minLength": 1 },
+    "source_hash": { "type": ["string", "null"] },
+    "environment": { "type": ["object", "null"] },
+    "integrity": {
+      "type": "object",
+      "properties": {
+        "valid": { "type": "boolean" },
+        "checks": { "type": "object" }
+      }
+    },
+    "provenance": { "type": ["object", "null"] },
+    "value": {},
+    "unit": { "type": ["string", "null"] }
+  },
+  "additionalProperties": true
+}

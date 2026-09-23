@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/holland202/evidence-ledger/schema/claim.schema.json",
+  "title": "Claim",
+  "description": "A proposition to be evaluated. A claim is not evidence.",
+  "type": "object",
+  "required": ["claim_id", "claim_text"],
+  "properties": {
+    "schema_version": { "type": "string", "const": "0.1" },
+    "claim_id": { "type": "string", "minLength": 1 },
+    "claim_text": { "type": "string", "minLength": 1 },
+    "claim_type": { "type": "string" },
+    "scope": { "type": "object" },
+    "created_at": { "type": "string", "format": "date-time" },
+    "author": { "type": "string" },
+    "source": { "type": "string" },
+    "parent_claim": { "type": ["string", "null"] }
+  },
+  "additionalProperties": true
+}

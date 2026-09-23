@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/holland202/evidence-ledger/schema/observation.schema.json",
+  "title": "Observation",
+  "description": "Something recorded about the world or system. Not automatically trustworthy.",
+  "type": "object",
+  "required": ["observation_id", "evidence_state"],
+  "properties": {
+    "schema_version": { "type": "string", "const": "0.1" },
+    "observation_id": { "type": "string", "minLength": 1 },
+    "claim_id": { "type": ["string", "null"] },
+    "value": {},
+    "unit": { "type": ["string", "null"] },
+    "source": { "type": ["string", "null"] },
+    "timestamp": { "type": ["string", "null"], "format": "date-time" },
+    "evidence_state": {
+      "type": "string",
+      "enum": [
+        "MEASURED",
+        "OPERATOR",
+        "DERIVED",
+        "INFERRED",
+        "ABSENT",
+        "DEFAULTED",
+        "NEVER_WIRED",
+        "UNVERIFIED"
+      ]
+    },
+    "raw_reference": { "type": ["string", "null"] }
+  },
+  "additionalProperties": true
+}

@@ -17,7 +17,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Adversarial attack scripts
 - Explicit statement that the project does not claim to be a truth machine
 
+### Changed
+
+- **EL-002 (Phase 1):** Ledger is now append-only at the API level.
+  - `record_claim`, `record_observation`, and `record_evidence` reject duplicate IDs with `ValueError`.
+  - Original records are preserved; silent overwrite is no longer possible.
+  - New tests: `tests/test_immutability.py`
+
 ### Notes
 
 - Repository created empty on GitHub; first content commit establishes provenance.
 - License still to be chosen.
+- Status remains Experimental / Not Validated. EL-001 baseline is preserved; EL-002 is the first hardening step.

@@ -36,10 +36,13 @@ class Ledger:
     def record_claim(self, claim: Dict[str, Any]) -> Dict[str, Any]:
         if "claim_id" not in claim:
             raise ValueError("claim_id required")
+        claim_id = claim["claim_id"]
+        if claim_id in self.claims:
+            raise ValueError(f"claim_id already exists: {claim_id}")
         claim = dict(claim)
         claim.setdefault("schema_version", "0.1")
         claim.setdefault("created_at", _utcnow())
-        self.claims[claim["claim_id"]] = claim
+        self.claims[claim_id] = claim
         return claim
 
     def record_observation(self, observation: Dict[str, Any]) -> Dict[str, Any]:
@@ -47,9 +50,12 @@ class Ledger:
             raise ValueError("observation_id required")
         if "evidence_state" not in observation:
             raise ValueError("evidence_state required")
+        observation_id = observation["observation_id"]
+        if observation_id in self.observations:
+            raise ValueError(f"observation_id already exists: {observation_id}")
         observation = dict(observation)
         observation.setdefault("schema_version", "0.1")
-        self.observations[observation["observation_id"]] = observation
+        self.observations[observation_id] = observation
         return observation
 
     def record_evidence(self, evidence: Dict[str, Any]) -> Dict[str, Any]:
@@ -57,6 +63,9 @@ class Ledger:
             raise ValueError("evidence_id required")
         if "evidence_state" not in evidence:
             raise ValueError("evidence_state required")
+        evidence_id = evidence["evidence_id"]
+        if evidence_id in self.evidence:
+            raise ValueError(f"evidence_id already exists: {evidence_id}")
         evidence = dict(evidence)
         evidence.setdefault("schema_version", "0.1")
         # If content_hash is missing, compute from the value-bearing fields.
@@ -66,7 +75,7 @@ class Ledger:
                 for k in ("value", "unit", "source_identifier", "timestamp", "evidence_state")
             }
             evidence["content_hash"] = content_hash(hashable)
-        self.evidence[evidence["evidence_id"]] = evidence
+        self.evidence[evidence_id] = evidence
         return evidence
 
     def get_evidence(self, evidence_id: str) -> Optional[Dict[str, Any]]:

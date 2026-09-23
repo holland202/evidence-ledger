@@ -11,6 +11,7 @@
 - Deterministic examples covering MEASURED / INFERRED / ABSENT / DEFAULTED / tampered
 - Unit and sabotage tests for the first acceptance gate (EL-001)
 - Explicit adversarial attack scripts
+- **EL-002:** Append-only ledger API — duplicate claim/observation/evidence IDs are rejected; originals remain unchanged (`tests/test_immutability.py`)
 
 ## What does not exist (and is intentionally deferred)
 

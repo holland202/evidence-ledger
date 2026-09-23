@@ -46,6 +46,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - Acceptance: good verifier passes all properties; every mutant fails ≥1 property.
   - New tests: `tests/test_mutation_resistance.py`.
 
+### Fixed
+
+- **Docs honesty (post a5186f6 audit):** README no longer claims forged provenance → `INVALID_EVIDENCE`.
+  Actual v0.1 behavior: internally consistent MEASURED + correct hash + invented source may still yield `SUPPORTED` because authenticity is not a contract gate. Hash tampering remains `INVALID_EVIDENCE`.
+- SPEC §2.5 clarified: payload integrity ≠ full record integrity; `integrity.valid` is self-attested; `content_hash_valid` is computed.
+- README design principles and epistemic status table aligned with EL-001…EL-006 labels.
+
 ### Notes
 
 - Repository created empty on GitHub; first content commit establishes provenance.

@@ -53,6 +53,19 @@ evidence-ledger/
 └── adversarial/            # Explicit attack scripts
 ```
 
+## EL-007: can a generator be kept out of its own evidence? (2026-10-02)
+
+```bash
+python experiments/el007_separation.py   # exit 1: 10 of 11 predictions as registered, P3 refuted (kept)
+```
+
+Separated selection is invariant to every generator mutation tried (P1), until one generator input is
+declared "authorized" (P2: invariance 0.823). Deleting failures from working context erases them from a
+coupled design and from none of the executor-owned ledger (P6). Truncating the ledger is invisible without an
+external head witness (P8, registered to fail). With the refutation withheld, the separated design is wrong on
+613 of 613 cases (P10, registered to fail): integrity is not completeness. Failures first:
+[`experiments/EL007_RESULTS.md`](experiments/EL007_RESULTS.md).
+
 ## What this is not
 
 - Not an AI truth detector

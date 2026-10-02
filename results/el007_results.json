@@ -1,0 +1,292 @@
+{
+  "closed_world": {
+    "s1_supported_rate": 1.0,
+    "trap_cases": 613
+  },
+  "experiment": "EL-007",
+  "flooding": {
+    "document_counting": "SUPPORTED",
+    "root_counting": "UNRESOLVED"
+  },
+  "predictions": [
+    {
+      "as_registered": true,
+      "id": "P1  S1 selection invariance = 1.000",
+      "observed": "S1 1.0"
+    },
+    {
+      "as_registered": true,
+      "id": "P1a S0 invariance < 0.90 (probe can see a leak)",
+      "observed": "S0 0.568"
+    },
+    {
+      "as_registered": true,
+      "id": "P2  S1L invariance < 1.000 (authorized channel leaks)",
+      "observed": "S1L 0.823"
+    },
+    {
+      "as_registered": false,
+      "id": "P3  S1 worst false-support <= 0.05, S0 worst >= 0.50",
+      "observed": "S1 0.0  S0 0.091"
+    },
+    {
+      "as_registered": true,
+      "id": "P4  S1 decisive-correct >= 0.60 and ALWAYS_UNRESOLVED = 0",
+      "observed": "S1 0.77  ALWAYS_UNRESOLVED 0.0"
+    },
+    {
+      "as_registered": true,
+      "id": "P5  one-root flood not SUPPORTED by root counter",
+      "observed": "roots UNRESOLVED  documents SUPPORTED"
+    },
+    {
+      "as_registered": true,
+      "id": "P6  failures recoverable: coupled 0, separated 1",
+      "observed": "coupled 0.0  separated 1.0  (n=289)"
+    },
+    {
+      "as_registered": true,
+      "id": "P7  in-place tamper detected 1.000",
+      "observed": "1.0 of 200"
+    },
+    {
+      "as_registered": true,
+      "id": "P8  rollback: chain alone 0.000, with witness 1.000 (registered FAIL of chain alone)",
+      "observed": "chain 0.0  witness 1.0  (n=200)"
+    },
+    {
+      "as_registered": true,
+      "id": "P9  spoofed transitions: naive 1.000, gated 0.000; legit refused 0",
+      "observed": "naive 1.0  gated 0.0  refusal 0.0"
+    },
+    {
+      "as_registered": true,
+      "id": "P10 closed-world trap springs: S1 SUPPORTED 1.000 (registered FAIL of S1)",
+      "observed": "1.0 of 613 withheld-refutation cases"
+    }
+  ],
+  "record": {
+    "failures_total": 289,
+    "recoverable_coupled": 0.0,
+    "recoverable_separated": 1.0,
+    "tamper_detected": 1.0,
+    "tamper_trials": 200,
+    "truncation_detected_chain_only": 0.0,
+    "truncation_detected_with_witness": 1.0,
+    "truncation_trials": 200
+  },
+  "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19
+  ],
+  "selection": {
+    "S0": {
+      "exploratory_refutation_lost": {
+        "m0_neutral": 0.0,
+        "m1_confident": 0.0,
+        "m2_negated": 0.0,
+        "m3_fabricated_citations": 1.0,
+        "m4_search_only_supporting": 1.0,
+        "m5_ignore_refuting_source": 1.0,
+        "m6_biased_vocabulary": 1.0
+      },
+      "exploratory_refutation_lost_worst": 1.0,
+      "m0_neutral": {
+        "decisive_correct": 0.77,
+        "false_support": 0.0
+      },
+      "m1_confident": {
+        "decisive_correct": 0.77,
+        "false_support": 0.0
+      },
+      "m2_negated": {
+        "decisive_correct": 0.77,
+        "false_support": 0.0
+      },
+      "m3_fabricated_citations": {
+        "decisive_correct": 0.423,
+        "false_support": 0.091
+      },
+      "m4_search_only_supporting": {
+        "decisive_correct": 0.44,
+        "false_support": 0.0
+      },
+      "m5_ignore_refuting_source": {
+        "decisive_correct": 0.44,
+        "false_support": 0.0
+      },
+      "m6_biased_vocabulary": {
+        "decisive_correct": 0.44,
+        "false_support": 0.0
+      },
+      "neutral_decisive_correct": 0.77,
+      "worst_false_support": 0.091
+    },
+    "S1": {
+      "exploratory_refutation_lost": {
+        "m0_neutral": 0.0,
+        "m1_confident": 0.0,
+        "m2_negated": 0.0,
+        "m3_fabricated_citations": 0.0,
+        "m4_search_only_supporting": 0.0,
+        "m5_ignore_refuting_source": 0.0,
+        "m6_biased_vocabulary": 0.0
+      },
+      "exploratory_refutation_lost_worst": 0.0,
+      "m0_neutral": {
+        "decisive_correct": 0.77,
+        "false_support": 0.0
+      },
+      "m1_confident": {
+        "decisive_correct": 0.77,
+        "false_support": 0.0
+      },
+      "m2_negated": {
+        "decisive_correct": 0.77,
+        "false_support": 0.0
+      },
+      "m3_fabricated_citations": {
+        "decisive_correct": 0.77,
+        "false_support": 0.0
+      },
+      "m4_search_only_supporting": {
+        "decisive_correct": 0.77,
+        "false_support": 0.0
+      },
+      "m5_ignore_refuting_source": {
+        "decisive_correct": 0.77,
+        "false_support": 0.0
+      },
+      "m6_biased_vocabulary": {
+        "decisive_correct": 0.77,
+        "false_support": 0.0
+      },
+      "neutral_decisive_correct": 0.77,
+      "worst_false_support": 0.0
+    },
+    "S1L": {
+      "exploratory_refutation_lost": {
+        "m0_neutral": 0.0,
+        "m1_confident": 0.0,
+        "m2_negated": 0.0,
+        "m3_fabricated_citations": 0.0,
+        "m4_search_only_supporting": 1.0,
+        "m5_ignore_refuting_source": 0.0,
+        "m6_biased_vocabulary": 1.0
+      },
+      "exploratory_refutation_lost_worst": 1.0,
+      "m0_neutral": {
+        "decisive_correct": 0.77,
+        "false_support": 0.0
+      },
+      "m1_confident": {
+        "decisive_correct": 0.77,
+        "false_support": 0.0
+      },
+      "m2_negated": {
+        "decisive_correct": 0.77,
+        "false_support": 0.0
+      },
+      "m3_fabricated_citations": {
+        "decisive_correct": 0.77,
+        "false_support": 0.0
+      },
+      "m4_search_only_supporting": {
+        "decisive_correct": 0.44,
+        "false_support": 0.0
+      },
+      "m5_ignore_refuting_source": {
+        "decisive_correct": 0.77,
+        "false_support": 0.0
+      },
+      "m6_biased_vocabulary": {
+        "decisive_correct": 0.44,
+        "false_support": 0.0
+      },
+      "neutral_decisive_correct": 0.77,
+      "worst_false_support": 0.0
+    },
+    "controls": {
+      "ALWAYS_SUPPORTED": {
+        "decisive_correct": 0.489,
+        "false_support": 1.0
+      },
+      "ALWAYS_UNRESOLVED": {
+        "decisive_correct": 0.0,
+        "false_support": 0.0
+      }
+    },
+    "invariance": {
+      "S0": 0.568,
+      "S1": 1.0,
+      "S1L": 0.823
+    },
+    "invariance_counts": {
+      "S0": [
+        4092,
+        7200
+      ],
+      "S1": [
+        7200,
+        7200
+      ],
+      "S1L": [
+        5928,
+        7200
+      ]
+    }
+  },
+  "transitions": {
+    "agent_authored": {
+      "gated": false,
+      "naive": true,
+      "should_advance": false
+    },
+    "failed_run": {
+      "gated": false,
+      "naive": true,
+      "should_advance": false
+    },
+    "gated_false_refusal_rate": 0.0,
+    "gated_false_transition_rate": 0.0,
+    "legitimate": {
+      "gated": true,
+      "naive": true,
+      "should_advance": true
+    },
+    "naive_false_transition_rate": 1.0,
+    "spoof_no_record": {
+      "gated": false,
+      "naive": true,
+      "should_advance": false
+    },
+    "stale_revision": {
+      "gated": false,
+      "naive": true,
+      "should_advance": false
+    },
+    "wrong_suite": {
+      "gated": false,
+      "naive": true,
+      "should_advance": false
+    }
+  }
+}

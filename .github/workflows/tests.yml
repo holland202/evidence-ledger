@@ -1,0 +1,27 @@
+# First CI for evidence-ledger. Stdlib only; pytest runs the tests.
+name: tests
+on: [push, pull_request]
+jobs:
+  test:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, macos-latest, windows-latest]
+        python: ["3.10", "3.12", "3.14"]
+    runs-on: ${{ matrix.os }}
+    defaults:
+      run:
+        shell: bash
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with:
+          python-version: ${{ matrix.python }}
+      - run: python -m pip install pytest
+      - run: python -m pytest -q
+      - name: EL-007 - recorded outcome pinned (P3 refuted and kept), sabotage caught, results byte-identical
+        run: python experiments/el007_ci_check.py
+      - name: EL-007 - the pin checker can fail (doctored transcript must be caught)
+        run: python experiments/el007_ci_check.py --selftest
+      - name: Running the experiment must not change the committed results file
+        run: git diff --exit-code -- results/

@@ -9,6 +9,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+- EL-007 (2026-10-02): `experiments/EL007_PREREG.md` registered before the run; `el007_separation.py` (S0/S1/S1L selectors, executor-owned hash-chained ledger, gated transitions, closed-world trap); 10 of 11 predictions as registered, P3 refuted and kept; `el007_ci_check.py` pins the recorded outcome; first CI workflow (3 OS x Python 3.10/3.12/3.14)
+
 - Initial ontology and invariants (`SPEC.md`)
 - JSON Schema skeletons for claim, observation, evidence, verification, reproduction, and run
 - Minimal reference implementation (`reference/ledger.py`, `verifier.py`, `replay.py`)

@@ -26,6 +26,7 @@
 | EL-004 | SUPPORTED [bounded] | Tested boundaries/malformed inputs; +Inf accepted by IEEE/`float` comparison |
 | EL-005 | NOT_TESTED | Schema files exist; schema ↔ implementation agreement not demonstrated |
 | EL-006 | SUPPORTED [bounded] | Six known alternate-verifier mutants detected; not general mutation coverage |
+| EL-007 | 10/11 AS REGISTERED; P3 REFUTED (kept) | Generator non-control, erasure resistance, gated transitions — `experiments/EL007_RESULTS.md`. Simulation only; NOT VALIDATED on device |
 | Authenticity enforcement | NOT IMPLEMENTED | ASSERTED provenance can still yield SUPPORTED |
 | Full record cryptographic integrity | NOT ESTABLISHED | Hash covers only selected payload fields |
 | Independent provenance | NOT IMPLEMENTED | No attestation / independent channel |

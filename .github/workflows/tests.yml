@@ -30,5 +30,12 @@ jobs:
           set +e
           python experiments/el007_p1_probe.py --sabotage
           test "$?" = 1
+      - name: EL-007 P11 - verdict monotone in the knowledge order, pinned
+        run: python experiments/el007_p11_probe.py
+      - name: EL-007 P11 - the probe can fail (sabotage must exit 1)
+        run: |
+          set +e
+          python experiments/el007_p11_probe.py --sabotage
+          test "$?" = 1
       - name: Running the experiment must not change the committed results file
         run: git diff --exit-code -- results/

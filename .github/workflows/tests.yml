@@ -23,5 +23,12 @@ jobs:
         run: python experiments/el007_ci_check.py
       - name: EL-007 - the pin checker can fail (doctored transcript must be caught)
         run: python experiments/el007_ci_check.py --selftest
+      - name: EL-007 P1 fix - probe pinned to the recorded outcome (planted mismatch is caught)
+        run: python experiments/el007_p1_probe.py
+      - name: EL-007 P1 fix - the probe can fail (sabotage must exit 1)
+        run: |
+          set +e
+          python experiments/el007_p1_probe.py --sabotage
+          test "$?" = 1
       - name: Running the experiment must not change the committed results file
         run: git diff --exit-code -- results/

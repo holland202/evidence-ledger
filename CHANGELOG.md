@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Fixed
+
+- EL-007 P1/P2 (2026-10-03): the verdict tested a 3-decimal rounded rate at denominator 7200, so up to 3 mismatches were invisible to P1 (and falsely failed P2). Now compares the saved integer counts. Registered first (`experiments/EL007_P1_FIX_PREREG.md`); results in `experiments/EL007_P1_FIX_RESULTS.md`. The recorded EL-007 outcome and results file are unchanged. Self-tested.
+
 ### Added
 
 - EL-007 (2026-10-02): `experiments/EL007_PREREG.md` registered before the run; `el007_separation.py` (S0/S1/S1L selectors, executor-owned hash-chained ledger, gated transitions, closed-world trap); 10 of 11 predictions as registered, P3 refuted and kept; `el007_ci_check.py` pins the recorded outcome; first CI workflow (3 OS x Python 3.10/3.12/3.14)

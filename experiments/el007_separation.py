@@ -361,9 +361,13 @@ def part_e(seeds: Sequence[int]) -> dict:
 def judge(a: dict, b: dict, c: dict, d: dict, e: dict) -> List[Tuple[str, bool, str]]:
     ctl = a["controls"]
     return [
-        ("P1  S1 selection invariance = 1.000", a["invariance"]["S1"] == 1.0, f"S1 {a['invariance']['S1']}"),
+        # P1 and P2 compare the saved integer counts, not the 3-decimal rounded rate (a rate of 7199/7200
+        # rounds to 1.0). See experiments/EL007_P1_FIX_PREREG.md.
+        ("P1  S1 selection invariance = 1.000", a["invariance_counts"]["S1"][0] == a["invariance_counts"]["S1"][1],
+         f"S1 {a['invariance']['S1']}"),
         ("P1a S0 invariance < 0.90 (probe can see a leak)", a["invariance"]["S0"] < 0.90, f"S0 {a['invariance']['S0']}"),
-        ("P2  S1L invariance < 1.000 (authorized channel leaks)", a["invariance"]["S1L"] < 1.0, f"S1L {a['invariance']['S1L']}"),
+        ("P2  S1L invariance < 1.000 (authorized channel leaks)",
+         a["invariance_counts"]["S1L"][0] < a["invariance_counts"]["S1L"][1], f"S1L {a['invariance']['S1L']}"),
         ("P3  S1 worst false-support <= 0.05, S0 worst >= 0.50",
          a["S1"]["worst_false_support"] <= 0.05 and a["S0"]["worst_false_support"] >= 0.50,
          f"S1 {a['S1']['worst_false_support']}  S0 {a['S0']['worst_false_support']}"),

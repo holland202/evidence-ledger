@@ -15,6 +15,7 @@ import hashlib
 import importlib.util
 import json
 import os
+import re
 import subprocess
 import sys
 
@@ -23,8 +24,8 @@ ROOT = os.path.dirname(HERE)
 EXP = os.path.join(HERE, "el007_separation.py")
 RESULTS = os.path.join(ROOT, "results", "el007_results.json")
 RESULTS_SHA256 = "3c885f062b4a7426144926c8d4a478f124dde4dfafcc907c8c348755c93b12c3"
-STDOUT_SHA256 = None  # sha256 of the experiment's stdout at 7213bad; pinned from the --pre-fix run
-RECORDED = None       # (True,) * 5 and a digest, pinned after the first scored run
+STDOUT_SHA256 = "4baa32b18041c317d598c50aca3d25c35eca8ba859d790e0598febea735c149a"  # experiment stdout at 7213bad (captured before the fix)
+RECORDED = ((True, True, True, True), "1143bc8ff8fadd3b8a191f5e9e5fc25f5c08f43652cc5b4b51c190020601ce32")  # F3 F5 F7 F4
 sys.dont_write_bytecode = True
 
 
@@ -160,7 +161,7 @@ def f4():  # record unchanged
     last = tail.strip().splitlines()[-1] if tail.strip() else ""
     d = {"experiment_exit": rc, "verdict_line": "VERDICT  10 of 11 as registered" in out, "stdout_sha256": sha,
          "results_sha256_ok": res_sha == RESULTS_SHA256, "ci_check_exit": ci, "ci_selftest_exit": st,
-         "pytest": last}
+         "pytest": (re.search(r"\d+ passed", last).group(0) if re.search(r"\d+ passed", last) else last)}
     ok = (rc == 1 and d["verdict_line"] and d["results_sha256_ok"] and ci == 0 and st == 0 and py == 0
           and (STDOUT_SHA256 is None or sha == STDOUT_SHA256))
     return d, ok
@@ -189,8 +190,6 @@ def main(argv):
     held = tuple(emit(k, *v) for k, v in obs.items())
     digest = hashlib.sha256(json.dumps({k: v[0] for k, v in obs.items()}, sort_keys=True,
                                        separators=(",", ":")).encode()).hexdigest()
-    if not pre and not sab:
-        extra = ""
     print(f"VERDICT {sum(held)} of {len(held)} as registered")
     print(f"DIGEST {digest}")
     if sab or RECORDED is None or pre:

@@ -1,0 +1,15 @@
+name: el007-d1
+on: [push, pull_request]
+jobs:
+  d1:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+      - name: EL-007 D1 - recorded outcome pinned (Q4 refuted and kept)
+        run: python experiments/el007_d1_probe.py
+      - name: EL-007 D1 - sabotage (oracle canonicalizer) must exit 1
+        run: |
+          if python experiments/el007_d1_probe.py --sabotage > /dev/null; then echo "sabotage passed: probe is vacuous"; exit 1; fi

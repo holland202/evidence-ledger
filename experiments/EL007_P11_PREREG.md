@@ -6,7 +6,7 @@ stacked on `el007-p1-exact-counts` (pull request #2) so that the CI file does no
 
 **Provenance:** AI participation → human validation → human editing/curation → human responsibility.
 - **AI participation:** Claude (Anthropic, Sonnet 5.5).
-- **Human review:** direction only. Chad Holland: "Proceed to the best path."
+- **Human review:** direction only (Chad Holland).
 - **Responsibility:** Chad Holland. **Self-tested.** No independent human has reviewed it.
 
 ## Origin

@@ -5,8 +5,8 @@ existed. Probe: `experiments/el007_p1_probe.py`. x86-64 container, Python 3.13. 
 Linux, macOS and Windows runs are the pull request's CI.
 
 **Provenance:** AI participation → human validation → human editing/curation → human responsibility.
-Claude (Anthropic, Sonnet 5.5) wrote the probe, the fix and this file. Human review: direction only
-("Proceed"). Responsibility: Chad Holland. **Self-tested**; no independent human has reviewed the change.
+Claude (Anthropic, Sonnet 5.5) wrote the probe, the fix and this file. Human review: direction only.
+Responsibility: Chad Holland. **Self-tested**; no independent human has reviewed the change.
 
 ## What could have gone wrong, and what did not change (first)
 

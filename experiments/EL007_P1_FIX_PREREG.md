@@ -6,7 +6,7 @@ Method: principia-artificialis `METHOD.md` at `646eed7`.
 
 **Provenance:** AI participation → human validation → human editing/curation → human responsibility.
 - **AI participation:** Claude (Anthropic, Sonnet 5.5) wrote this registration and will write the fix and probe.
-- **Human review:** direction only. Chad Holland: "Proceed."
+- **Human review:** direction only (Chad Holland).
 - **Responsibility:** Chad Holland. **Self-tested.** No independent human has reviewed it.
 
 ## Origin

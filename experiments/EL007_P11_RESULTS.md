@@ -4,8 +4,8 @@ Registration: `experiments/EL007_P11_PREREG.md`, committed alone at `49118fb` be
 Probe: `python experiments/el007_p11_probe.py`. x86-64 container, Python 3.13. **NOT VALIDATED on the S25.**
 
 **Provenance:** AI participation → human validation → human editing/curation → human responsibility.
-Claude (Anthropic, Sonnet 5.5) wrote the registration, probe and this file. Human review: direction only
-("Proceed to the best path"). Responsibility: Chad Holland. **Self-tested.**
+Claude (Anthropic, Sonnet 5.5) wrote the registration, probe and this file. Human review: direction only.
+Responsibility: Chad Holland. **Self-tested.**
 
 ## What could have gone wrong, and why this result carries little (first)
 

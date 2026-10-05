@@ -5,7 +5,7 @@ this commit; results go in `experiments/EL007_D1_RESULTS.md`. Method: principia-
 
 **Provenance:** AI participation → human validation → human editing/curation → human responsibility.
 - **AI participation:** Claude (Anthropic, Opus 5.5) wrote this registration and will write the probe.
-- **Human review:** direction only. Chad Holland: "Proceed to extrapolate to data and do what you think is best."
+- **Human review:** direction only (Chad Holland).
 - **Responsibility:** Chad Holland. **Self-tested.** No independent human has reviewed it.
 
 ## Origin

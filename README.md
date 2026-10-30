@@ -113,3 +113,7 @@ Every listed distinction must survive intentional sabotage. If a sabotage surviv
 | EL-006 | SUPPORTED [bounded] | Six known alternate-verifier mutants detected by the property suite |
 
 Passing tests establish only the properties targeted by those tests.
+
+## Related AI governance research
+
+Evidence Ledger tracks evidence states and verification contracts; Sovereign Veritas separately evaluates declared authorization and evidence for proposed AI actions. Neither project's passing tests establish outside-world truth or source authenticity. See [Sovereign Veritas — experimental AI governance and action permission gate](https://github.com/holland202/sovereign-veritas) for its current maintenance-only status, recorded failures, test contract, and explicit limitations. This cross-reference is for research navigation, not an integrated-system or independent-verification claim.
